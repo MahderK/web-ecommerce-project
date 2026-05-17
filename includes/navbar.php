@@ -11,9 +11,9 @@
     </nav>
 
     <div class="icons">
-      <span>🔍</span>
-      <span>👤</span>
-      <span>🛒</span>
+      <span><i class="fa-solid fa-magnifying-glass"></i></span>
+      <span><i class="fa-regular fa-user"></i></span>
+      <span><i class="fa-solid fa-cart-shopping"></i></span>
     </div>
   </div>
 </header>
