@@ -23,8 +23,8 @@ $products = [
 ];
 ?>
 
-<section class="products" id="shop">
-  <div class="container">
+<section class="products" id="shop" >
+  <div class="container" >
 
     <div class="section-title">
       <h2>Our Products</h2>
