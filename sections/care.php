@@ -1,4 +1,4 @@
-<section class="cta">
+<section class="cta" id="about">
   <div class="container">
 
     <div class="cta-box">

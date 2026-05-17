@@ -22,11 +22,16 @@ img {
   margin: auto;
 } /* NAVBAR */
 header {
-  background: #0b4d2c;
+  background: #167545;
   color: white;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 .navbar {
   display: flex;
+
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;

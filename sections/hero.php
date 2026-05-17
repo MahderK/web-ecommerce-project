@@ -1,4 +1,4 @@
-<section class="hero">
+<section class="hero" id="index">
   <div class="container hero-content">
 
     <div class="hero-text">
