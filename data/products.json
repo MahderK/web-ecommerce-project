@@ -1,0 +1,14 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Monstera Deliciosa",
+      "description": "Large tropical plant with split leaves",
+      "price": 24.00,
+      "image": "monstera.jpg",
+      "category": "Indoor Plants",
+      "stock": 15,
+      "created_at": "2026-05-18"
+    }
+  ]
+}

@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/80f4af3029.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+    <?php include './includes/auth_check.php'; ?>
     <?php include './includes/sidebar.php'; ?>
 
     <div class="main-content">
