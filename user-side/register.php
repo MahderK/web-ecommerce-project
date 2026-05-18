@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login - Plantea</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Register - Plantea</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
     <script src="https://kit.fontawesome.com/80f4af3029.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -12,20 +12,24 @@
 
 <section class="auth-container">
     <div class="auth-box">
-        <h2>Welcome Back</h2>
+        <h2>Create an Account</h2>
         <form action="#" method="POST">
+            <div class="input-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+            </div>
             <div class="input-group">
                 <label for="email">Email Address</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
             </div>
-            <button type="submit" class="auth-btn">Login</button>
+            <button type="submit" class="auth-btn">Register</button>
         </form>
         <div class="auth-footer">
-            <p>Don't have an account? <a href="register.php">Register here</a></p>
+            <p>Already have an account? <a href="login.php">Login here</a></p>
         </div>
     </div>
 </section>

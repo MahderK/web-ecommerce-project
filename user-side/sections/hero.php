@@ -9,7 +9,7 @@
         tellus luctus nec ullamcorper mattis.
       </p>
 
-      <a href="#" class="btn">Shop Now</a>
+      <a href="#shop" class="btn">Shop Now</a>
     </div>
 
     <div class="hero-image">
