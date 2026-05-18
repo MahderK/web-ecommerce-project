@@ -1,0 +1,375 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: #f7f7f4;
+  color: #222;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  width: 100%;
+  display: block;
+}
+#index,
+#shop,
+#about,
+#blog,
+#contact {
+  scroll-margin-top: 80px;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+} /* NAVBAR */
+header {
+  background: #167545;
+  color: white;
+
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.navbar {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+}
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+.nav-links a {
+  font-size: 15px;
+  transition: 0.3s;
+}
+.nav-links a:hover {
+  color: #b7e4c7;
+}
+.icons {
+  display: flex;
+  gap: 25px;
+  font-size: 20px;
+  color: white;
+} /* HERO */
+.hero {
+  background: #0b4d2c;
+  color: white;
+  padding: 60px 0;
+}
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+.hero-text h1 {
+  font-size: 64px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.hero-text p {
+  color: #d7e7d7;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+.btn {
+  display: inline-block;
+  background: #f4a261;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 40px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+.hero-image {
+  background: white;
+  border-radius: 300px 300px 0 0;
+  overflow: hidden;
+  padding: 30px;
+} /* FEATURES */
+.features {
+  background: #083b22;
+  color: white;
+  padding: 30px 0;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.feature-card {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+.feature-card h4 {
+  margin-bottom: 8px;
+}
+.feature-card p {
+  font-size: 14px;
+  color: #cbd5cb;
+} /* BANNERS */
+.banners {
+  padding: 70px 0;
+}
+.banner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.banner {
+  background: #ecece8;
+  border-radius: 20px;
+  padding: 40px;
+  min-height: 220px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.banner h2 {
+  font-size: 40px;
+  margin: 10px 0;
+}
+.banner a {
+  color: #0b4d2c;
+  font-weight: 600;
+}
+.banner img {
+  width: 180px;
+} /* PRODUCTS */
+.products {
+  padding-bottom: 80px;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.section-title h2 {
+  font-size: 42px;
+  color: #0b4d2c;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+.product-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  transition: 0.3s;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+.product-image {
+  height: 220px;
+  overflow: hidden;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  background: #f1f1f1;
+}
+.product-image img {
+  height: 100%;
+  object-fit: cover;
+}
+.product-card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.price {
+  color: #0b4d2c;
+  font-weight: 700;
+} /* CTA */
+.cta {
+  padding-bottom: 80px;
+}
+.cta-box {
+  background: #0b4d2c;
+  border-radius: 30px;
+  padding: 50px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+.cta-box h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+.cta-images {
+  display: flex;
+  gap: 20px;
+}
+.circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: white;
+  padding: 10px;
+} /* CARE */
+.care {
+  padding-bottom: 80px;
+}
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+.care-card {
+  text-align: center;
+}
+.care-card h3 {
+  margin: 15px 0;
+}
+.care-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+} /* BLOG */
+.blog {
+  padding-bottom: 80px;
+}
+.blog-box {
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.blog-content {
+  padding: 50px;
+}
+.blog-content h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #0b4d2c;
+}
+.blog-content p {
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #555;
+} /* FOOTER */
+footer {
+  background: #0b4d2c;
+  color: white;
+  padding: 70px 0 30px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+footer h3 {
+  margin-bottom: 20px;
+}
+footer p,
+footer a {
+  color: #d5e2d5;
+  font-size: 14px;
+  line-height: 2;
+}
+.newsletter {
+  margin-bottom: 50px;
+  text-align: center;
+}
+.newsletter h2 {
+  margin-bottom: 20px;
+  font-size: 36px;
+}
+.newsletter form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.newsletter input {
+  padding: 15px;
+  width: 350px;
+  border: none;
+  border-radius: 8px;
+}
+.newsletter button {
+  border: none;
+  background: #f4a261;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.copyright {
+  text-align: center;
+  color: #d7e7d7;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  font-size: 14px;
+} /* RESPONSIVE */
+@media (max-width: 992px) {
+  .hero-content,
+  .banner-grid,
+  .blog-box,
+  .cta-box {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .care-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-text h1 {
+    font-size: 48px;
+  }
+}
+@media (max-width: 600px) {
+  .nav-links {
+    display: none;
+  }
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  .care-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-text h1 {
+    font-size: 38px;
+  }
+  .banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+}
