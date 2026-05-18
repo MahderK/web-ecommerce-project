@@ -3,7 +3,7 @@
     <div class="logo">Plantea.</div>
 
     <nav class="nav-links">
-      <a href="../index.php#index">Home</a>
+      <a href="../index.php">Home</a>
       <a href="#shop">Shop</a>
       <a href="#about">About</a>
       <a href="#blog">Blog</a>
