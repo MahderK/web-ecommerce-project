@@ -12,7 +12,9 @@
 
     <div class="icons">
       <span><i class="fa-solid fa-magnifying-glass"></i></span>
+      <a href="../login.php">
       <span><i class="fa-regular fa-user"></i></span>
+      </a>
       <a href="../cart.php">
       <span><i class="fa-solid fa-cart-shopping"></i></span>
 
