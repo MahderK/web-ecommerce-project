@@ -4,7 +4,7 @@
 
     <nav class="nav-links">
       <a href="index.php#index">Home</a>
-      <a href="#shop">Shop</a>
+      <a href="products.php#products">Shop</a>
       <a href="#about">About</a>
       <a href="#blog">Blog</a>
       <a href="#contact">Contact</a>
