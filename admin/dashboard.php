@@ -1,3 +1,4 @@
+<?php include_once '../user-side/includes/db.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +42,7 @@
             </div>
             <div class="card">
                 <div class="card-info">
-                    <h3>342</h3>
+                    <h3><?= count(get_products()) ?></h3>
                     <span>Products</span>
                 </div>
                 <div class="card-icon">
