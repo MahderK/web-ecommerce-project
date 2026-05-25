@@ -201,7 +201,16 @@ header {
 .price {
   color: #0b4d2c;
   font-weight: 700;
-} /* CTA */
+}
+.products-cta {
+  text-align: center;
+  margin-top: 30px;
+}
+.products-cta .btn {
+  padding: 14px 36px;
+}
+
+/* CTA */
 .cta {
   padding-bottom: 80px;
 }
