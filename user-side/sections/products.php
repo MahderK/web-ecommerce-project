@@ -1,26 +1,6 @@
 <?php
-$products = [
-  [
-    "name" => "Monstera Deliciosa",
-    "price" => 24.00,
-    "image" => "https://images.unsplash.com/photo-1501004318641-b39e6451bec6"
-  ],
-  [
-    "name" => "Snake Plant",
-    "price" => 18.00,
-    "image" => "https://images.unsplash.com/photo-1512428813834-c702c7702b78"
-  ],
-  [
-    "name" => "Fiddle Leaf Fig",
-    "price" => 22.00,
-    "image" => "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735"
-  ],
-  [
-    "name" => "Aloe Vera",
-    "price" => 14.00,
-    "image" => "https://images.unsplash.com/photo-1416879595882-3373a0480b5b"
-  ]
-];
+include_once __DIR__ . '/../includes/db.php';
+$products = array_slice(get_products(), 0, 4);
 ?>
 
 <section class="products" id="shop" >

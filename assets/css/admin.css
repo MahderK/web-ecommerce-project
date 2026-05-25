@@ -212,3 +212,111 @@ table th {
 .action-links a.delete {
     color: #e63946;
 }
+
+/* Alert notifications */
+.alert {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-weight: 500;
+    font-size: 14px;
+}
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Forms layout */
+.form-container {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+.form-container h3 {
+    margin-bottom: 20px;
+    color: #0b4d2c;
+    font-size: 20px;
+    border-bottom: 2px solid #f4f6f9;
+    padding-bottom: 10px;
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.form-group label {
+    font-weight: 600;
+    color: #555;
+    font-size: 14px;
+}
+.form-group input, .form-group select {
+    padding: 10px 14px;
+    border: 1.5px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: border-color 0.25s;
+    background: white;
+}
+.form-group input:focus, .form-group select:focus {
+    border-color: #0b4d2c;
+}
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+/* Badges for Product Status */
+.admin-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+.admin-badge-best-seller { background: #ffeeba; color: #856404; }
+.admin-badge-new         { background: #d4edda; color: #155724; }
+.admin-badge-popular     { background: #e8d7f5; color: #6a4c93; }
+.admin-badge-sale        { background: #f8d7da; color: #e63946; }
+
+/* Product thumbnail */
+.product-thumb {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: #f1f1f1;
+}
+
+/* Delete form button styling */
+.delete-btn-link {
+    background: none;
+    border: none;
+    color: #e63946;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    display: inline-block;
+}
+.delete-btn-link:hover {
+    text-decoration: underline;
+}
+
