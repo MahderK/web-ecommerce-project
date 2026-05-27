@@ -60,6 +60,7 @@ CREATE TABLE IF NOT EXISTS products (
     price DECIMAL(10,2) NOT NULL,
     stock_quantity INT NOT NULL,
     image_url VARCHAR(255),
+    badge VARCHAR(50) DEFAULT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 
     FOREIGN KEY (category_id)
@@ -189,9 +190,43 @@ mysqli_query($conn, $reviewsTable);
 
 
 
-echo "All tables created successfully!";
+// Check if categories are already populated
+$catCheck = mysqli_query($conn, "SELECT COUNT(*) as count FROM categories");
+$catCount = mysqli_fetch_assoc($catCheck)['count'];
+if ($catCount == 0) {
+    // Seed Categories
+    mysqli_query($conn, "INSERT INTO categories (category_name) VALUES ('Indoor'), ('Outdoor'), ('Succulents'), ('Tropical')");
+    
+    // Seed Products
+    $productsSeed = [
+        ['Monstera Deliciosa', 24.00, 1, 'Best Seller', 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=400&q=80'],
+        ['Snake Plant', 18.00, 1, '', 'https://images.unsplash.com/photo-1512428813834-c702c7702b78?w=400&q=80'],
+        ['Fiddle Leaf Fig', 22.00, 1, 'New', 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=400&q=80'],
+        ['Aloe Vera', 14.00, 3, '', 'https://images.unsplash.com/photo-1616677102255-f6f5d4e7749d?w=400&q=80'],
+        ['Bird of Paradise', 35.00, 4, 'Popular', 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80'],
+        ['Pothos', 12.00, 1, '', 'https://images.unsplash.com/photo-1632207691143-643e2a9a9361?w=400&q=80'],
+        ['Cactus Mix', 10.00, 3, 'Sale', 'https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=400&q=80'],
+        ['Peace Lily', 20.00, 1, '', 'https://images.unsplash.com/photo-1591958911259-bee2173bdccc?w=400&q=80'],
+        ['Bamboo Palm', 28.00, 2, '', 'https://images.unsplash.com/photo-1584467735871-8e85353a8413?w=400&q=80'],
+        ['Lavender', 16.00, 2, 'New', 'https://images.unsplash.com/photo-1444930694458-01babf71870c?w=400&q=80'],
+        ['Rubber Plant', 26.00, 4, '', 'https://images.unsplash.com/photo-1620803366004-119b57f54cd6?w=400&q=80'],
+        ['Echeveria Succulent', 9.00, 3, 'Sale', 'https://images.unsplash.com/photo-1555173274-ae64e5a4f51d?w=400&q=80']
+    ];
+    
+    foreach ($productsSeed as $p) {
+        $name = mysqli_real_escape_string($conn, $p[0]);
+        $price = floatval($p[1]);
+        $catId = intval($p[2]);
+        $badge = mysqli_real_escape_string($conn, $p[3]);
+        $img = mysqli_real_escape_string($conn, $p[4]);
+        
+        $sqlProd = "INSERT INTO products (name, price, category_id, badge, image_url, stock_quantity, description) 
+                    VALUES ('$name', $price, $catId, '$badge', '$img', 50, 'A beautiful addition to any plant lover\'s home.')";
+        mysqli_query($conn, $sqlProd);
+    }
+}
 
+echo "All tables created and default catalog seeded successfully!";
 
 mysqli_close($conn);
-
 ?>
