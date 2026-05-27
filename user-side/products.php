@@ -92,17 +92,20 @@ if ($sort === 'name')       usort($filtered, fn($a,$b) => strcmp($a['name'], $b[
     </p>
 
     <!-- Product Grid -->
-    <?php if (count($filtered) === 0): ?>
-      <div class="no-results">
-        <i class="fa-solid fa-leaf"></i>
-        <h3>No plants found</h3>
-        <p>Try a different search or category.</p>
-        <a href="products.php" class="btn">Clear Filters</a>
-      </div>
-    <?php else: ?>
+    <div class="no-results" id="catalog-no-results" style="<?= count($filtered) === 0 ? '' : 'display: none;' ?>">
+      <i class="fa-solid fa-leaf"></i>
+      <h3>No plants found</h3>
+      <p>Try a different search or category.</p>
+      <a href="products.php" class="btn">Clear Filters</a>
+    </div>
+
     <div class="shop-grid">
-      <?php foreach ($filtered as $p): ?>
-      <div class="shop-card" data-category="<?= $p['category'] ?>">
+      <?php foreach ($products as $p): 
+        $matchSearch = $search === '' || str_contains(strtolower($p['name']), $search);
+        $matchCat    = $cat === 'All' || $p['category'] === $cat;
+        $shouldHide = !($matchSearch && $matchCat);
+      ?>
+      <div class="shop-card" data-category="<?= htmlspecialchars($p['category']) ?>" data-name="<?= htmlspecialchars(strtolower($p['name'])) ?>" style="<?= $shouldHide ? 'display: none;' : '' ?>">
         <?php if ($p['badge']): ?>
           <span class="badge badge-<?= strtolower(str_replace(' ','-',$p['badge'])) ?>"><?= $p['badge'] ?></span>
         <?php endif; ?>
@@ -134,11 +137,85 @@ if ($sort === 'name')       usort($filtered, fn($a,$b) => strcmp($a['name'], $b[
       </div>
       <?php endforeach; ?>
     </div>
-    <?php endif; ?>
   </div>
 </section>
 
 <?php include './includes/footer.php'; ?>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var searchInput = document.getElementById('search-input');
+    var categoryPills = document.querySelectorAll('.category-pills .pill');
+    var sortSelect = document.getElementById('sort-select');
+    var shopForm = document.getElementById('shop-form');
+    var shopCards = document.querySelectorAll('.shop-card');
+    var noResults = document.getElementById('catalog-no-results');
+    var resultsCount = document.querySelector('.results-count');
+    
+    var activeCategory = '<?= htmlspecialchars($cat) ?>';
+    
+    // Intercept category pills to avoid reload
+    categoryPills.forEach(function(pill) {
+        pill.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Toggle active class
+            categoryPills.forEach(p => p.classList.remove('active'));
+            this.classList.add('active');
+            
+            activeCategory = this.value;
+            
+            // Update hidden fields in form just in case they do a manual submit
+            var catInput = shopForm.querySelector('input[name="category"]');
+            if (catInput) catInput.value = activeCategory;
+            
+            filterCatalog();
+        });
+    });
+    
+    // Filter on search keyup
+    searchInput.addEventListener('input', function() {
+        filterCatalog();
+    });
+    
+    function filterCatalog() {
+        var query = searchInput.value.toLowerCase().trim();
+        var visibleCount = 0;
+        
+        shopCards.forEach(function(card) {
+            var cardCat = card.getAttribute('data-category');
+            var cardName = card.getAttribute('data-name');
+            
+            var matchesCat = (activeCategory === 'All' || cardCat === activeCategory);
+            var matchesQuery = (query === '' || cardName.includes(query));
+            
+            if (matchesCat && matchesQuery) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Update results counter dynamically
+        var label = 'Showing <strong>' + visibleCount + '</strong> plant' + (visibleCount !== 1 ? 's' : '');
+        if (activeCategory !== 'All') {
+            label += ' in <strong>' + activeCategory + '</strong>';
+        }
+        if (query !== '') {
+            label += ' for &ldquo;<strong>' + query.replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</strong>&rdquo;';
+        }
+        resultsCount.innerHTML = label;
+        
+        // Show/hide empty state
+        if (visibleCount === 0) {
+            noResults.style.display = 'block';
+        } else {
+            noResults.style.display = 'none';
+        }
+    }
+});
+</script>
 
 </body>
 </html>

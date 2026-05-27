@@ -81,7 +81,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Create a password" required>
+                <div style="position: relative;">
+                    <input type="password" id="password" name="password" placeholder="Create a password" required style="padding-right: 45px;">
+                    <button type="button" id="toggle-password" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #888; font-size: 16px; padding: 0;">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                </div>
+                <div id="strength-meter" style="margin-top: 8px;">
+                    <div style="display: flex; gap: 4px; margin-bottom: 4px;">
+                        <div id="str-bar-1" style="height: 4px; flex: 1; border-radius: 2px; background: #e0e0e0; transition: background 0.3s;"></div>
+                        <div id="str-bar-2" style="height: 4px; flex: 1; border-radius: 2px; background: #e0e0e0; transition: background 0.3s;"></div>
+                        <div id="str-bar-3" style="height: 4px; flex: 1; border-radius: 2px; background: #e0e0e0; transition: background 0.3s;"></div>
+                    </div>
+                    <span id="str-label" style="font-size: 12px; color: #999;"></span>
+                </div>
             </div>
             <button type="submit" class="auth-btn">Register</button>
         </form>
@@ -92,6 +105,71 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </section>
 
 <?php include './includes/footer.php'; ?>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Show/Hide password toggle
+    var toggleBtn = document.getElementById('toggle-password');
+    var passwordInput = document.getElementById('password');
+    var icon = toggleBtn.querySelector('i');
+
+    toggleBtn.addEventListener('click', function() {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    });
+
+    // Password strength meter
+    var bar1 = document.getElementById('str-bar-1');
+    var bar2 = document.getElementById('str-bar-2');
+    var bar3 = document.getElementById('str-bar-3');
+    var label = document.getElementById('str-label');
+
+    passwordInput.addEventListener('input', function() {
+        var val = this.value;
+        var score = 0;
+
+        if (val.length >= 6) score++;
+        if (val.length >= 10) score++;
+        if (/[A-Z]/.test(val)) score++;
+        if (/[0-9]/.test(val)) score++;
+        if (/[^A-Za-z0-9]/.test(val)) score++;
+
+        // Reset
+        var defaultColor = '#e0e0e0';
+        bar1.style.background = defaultColor;
+        bar2.style.background = defaultColor;
+        bar3.style.background = defaultColor;
+        label.textContent = '';
+        label.style.color = '#999';
+
+        if (val.length === 0) return;
+
+        if (score <= 2) {
+            bar1.style.background = '#e63946';
+            label.textContent = 'Weak';
+            label.style.color = '#e63946';
+        } else if (score <= 3) {
+            bar1.style.background = '#f4a261';
+            bar2.style.background = '#f4a261';
+            label.textContent = 'Medium';
+            label.style.color = '#f4a261';
+        } else {
+            bar1.style.background = '#2a9d5c';
+            bar2.style.background = '#2a9d5c';
+            bar3.style.background = '#2a9d5c';
+            label.textContent = 'Strong';
+            label.style.color = '#2a9d5c';
+        }
+    });
+});
+</script>
 
 </body>
 </html>

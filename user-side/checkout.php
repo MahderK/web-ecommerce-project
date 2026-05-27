@@ -169,6 +169,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['place_order'])) {
                                 </div>
                             </div>
 
+                            <div id="card-details-section" style="display: none; margin-top: 20px; padding: 20px; border: 1px solid #ddd; border-radius: 10px; background: #fafafa;">
+                                <h4 style="margin-top: 0; margin-bottom: 15px; color: #0b4d2c; font-size: 15px; font-weight: 600;">Card Details</h4>
+                                <div class="form-group">
+                                    <label for="card_num">Card Number</label>
+                                    <input type="text" id="card_num" placeholder="1234 5678 1234 5678" style="background: #fff;">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="card_exp">Expiry Date</label>
+                                        <input type="text" id="card_exp" placeholder="MM/YY" style="background: #fff;">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="card_cvv">CVV</label>
+                                        <input type="text" id="card_cvv" placeholder="123" style="background: #fff;">
+                                    </div>
+                                </div>
+                            </div>
+
                             <button type="submit" class="place-order-btn">Place My Order</button>
                         </form>
                     </div>
@@ -206,5 +224,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['place_order'])) {
     </section>
 
     <?php include './includes/footer.php'; ?>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var payCash = document.getElementById('pay_cash');
+        var payCard = document.getElementById('pay_card');
+        var cardSection = document.getElementById('card-details-section');
+
+        function toggleCardSection() {
+            if (payCard.checked) {
+                cardSection.style.display = 'block';
+                cardSection.querySelectorAll('input').forEach(i => i.required = true);
+            } else {
+                cardSection.style.display = 'none';
+                cardSection.querySelectorAll('input').forEach(i => {
+                    i.required = false;
+                    i.value = '';
+                });
+            }
+        }
+
+        payCash.addEventListener('change', toggleCardSection);
+        payCard.addEventListener('change', toggleCardSection);
+    });
+    </script>
 </body>
 </html>
