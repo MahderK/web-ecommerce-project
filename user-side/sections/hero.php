@@ -5,8 +5,8 @@
       <h1>Bring The Nature Close To You</h1>
 
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut elit
-        tellus luctus nec ullamcorper mattis.
+        Explore our curated selection of hand-picked indoor and outdoor plants. 
+        Bring life, color, and fresh air directly into your home workspace or garden today.
       </p>
 
       <a href="#shop" class="btn">Shop Now</a>
