@@ -32,40 +32,88 @@ img {
   margin: auto;
 } /* NAVBAR */
 header {
-  background: #167545;
+  background: rgba(11, 77, 44, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: white;
-
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
 }
 .navbar {
   display: flex;
-
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 16px 0;
 }
 .logo {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+.logo::after {
+  content: '.';
+  color: #f4a261;
+  font-size: 32px;
+  line-height: 0;
+  margin-left: 2px;
 }
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 35px;
 }
 .nav-links a {
   font-size: 15px;
-  transition: 0.3s;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #f4a261;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
 }
 .nav-links a:hover {
-  color: #b7e4c7;
+  color: #fff;
+}
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 .icons {
   display: flex;
-  gap: 25px;
-  font-size: 20px;
-  color: white;
+  align-items: center;
+  gap: 22px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+}
+.icons a, .icons span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.icons a:hover, .icons span:hover {
+  color: #f4a261;
+  transform: translateY(-1px) scale(1.08);
 } /* HERO */
 .hero {
   background: #0b4d2c;

@@ -10,9 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <nav class="nav-links">
       <a href="index.php#index">Home</a>
       <a href="products.php#products">Shop</a>
-      <a href="#about">About</a>
-      <a href="#blog">Blog</a>
-      <a href="#contact">Contact</a>
+      <a href="index.php#contact">Contact</a>
     </nav>
 
     <div class="icons">
