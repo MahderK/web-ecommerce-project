@@ -226,6 +226,15 @@ if ($catCount == 0) {
     }
 }
 
+// Check if users are populated
+$userCheck = mysqli_query($conn, "SELECT COUNT(*) as count FROM users");
+$userCount = mysqli_fetch_assoc($userCheck)['count'];
+if ($userCount == 0) {
+    // Seed default admin user (password: admin123)
+    $admin_pass = password_hash('admin123', PASSWORD_DEFAULT);
+    mysqli_query($conn, "INSERT INTO users (username, email, password_hash, role) VALUES ('Admin User', 'admin@plantea.com', '$admin_pass', 'admin')");
+}
+
 echo "All tables created and default catalog seeded successfully!";
 
 mysqli_close($conn);

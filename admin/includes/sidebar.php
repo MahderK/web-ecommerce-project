@@ -24,7 +24,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="../user-side/logout.php">
                 <i class="fa-solid fa-right-from-bracket"></i> Logout
             </a>
         </li>

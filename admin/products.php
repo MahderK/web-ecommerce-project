@@ -1,4 +1,6 @@
 <?php
+include_once '../user-side/includes/auth.php';
+require_admin();
 include_once '../user-side/includes/db.php';
 
 $message = '';

@@ -1,3 +1,7 @@
+<?php
+include_once '../user-side/includes/auth.php';
+require_admin();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

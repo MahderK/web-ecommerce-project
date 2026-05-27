@@ -1,4 +1,8 @@
-<?php include_once '../user-side/includes/db.php'; ?>
+<?php 
+include_once '../user-side/includes/auth.php';
+require_admin();
+include_once '../user-side/includes/db.php'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
