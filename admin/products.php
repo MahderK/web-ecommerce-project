@@ -245,7 +245,7 @@ $products = get_products();
                                 </td>
                                 <td><strong><?= htmlspecialchars($p['name']) ?></strong></td>
                                 <td><?= htmlspecialchars($p['category']) ?></td>
-                                <td>$<?= number_format($p['price'], 2) ?></td>
+                                <td><?= number_format($p['price'], 2) ?> Birr</td>
                                 <td>
                                     <?php if (!empty($p['badge'])): ?>
                                         <span class="admin-badge admin-badge-<?= strtolower(str_replace(' ', '-', $p['badge'])) ?>">

@@ -22,7 +22,7 @@ $products = array_slice(get_products(), 0, 4);
           <h3><?= $product['name']; ?></h3>
 
           <div class="price">
-            $<?= number_format($product['price'], 2); ?>
+            <?= number_format($product['price'], 2); ?> Birr
           </div>
 
         </div>

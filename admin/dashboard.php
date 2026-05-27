@@ -59,7 +59,7 @@ $recentOrdersQuery = mysqli_query($conn, "
             </div>
             <div class="card">
                 <div class="card-info">
-                    <h3>$<?= number_format($totalRevenue, 2) ?></h3>
+                    <h3><?= number_format($totalRevenue, 2) ?> Birr</h3>
                     <span>Total Revenue</span>
                 </div>
                 <div class="card-icon">
@@ -113,7 +113,7 @@ $recentOrdersQuery = mysqli_query($conn, "
                                 <td>#ORD-<?= str_pad($ord['order_id'], 4, '0', STR_PAD_LEFT) ?></td>
                                 <td><?= htmlspecialchars($ord['username'] ?? 'Guest Customer') ?></td>
                                 <td><?= date('M d, Y', strtotime($ord['created_at'])) ?></td>
-                                <td>$<?= number_format($ord['total_amount'], 2) ?></td>
+                                <td><?= number_format($ord['total_amount'], 2) ?> Birr</td>
                                 <td>
                                     <span class="status <?= strtolower($ord['order_status']) ?>">
                                         <?= htmlspecialchars($ord['order_status']) ?>

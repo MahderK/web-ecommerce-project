@@ -161,7 +161,7 @@ $avg_rating = $reviews_count > 0 ? round($total_rating / $reviews_count, 1) : 0;
                     </span>
                 </div>
 
-                <div class="info-price">$<?= number_format($product['price'], 2) ?></div>
+                <div class="info-price"><?= number_format($product['price'], 2) ?> Birr</div>
                 
                 <p class="info-desc">
                     <?= htmlspecialchars($product['description'] ?: 'A beautiful addition to any plant lover\'s home. These organic plants are carefully nurtured, low maintenance, and perfect for purifying the air inside your living space.') ?>
