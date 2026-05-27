@@ -2,6 +2,28 @@
 include_once '../user-side/includes/auth.php';
 require_admin();
 include_once '../user-side/includes/db.php'; 
+
+// Fetch Stats
+$ordersCountQuery = mysqli_query($conn, "SELECT COUNT(*) as count FROM orders");
+$totalOrders = mysqli_fetch_assoc($ordersCountQuery)['count'];
+
+$revenueQuery = mysqli_query($conn, "SELECT COALESCE(SUM(total_amount), 0) as total FROM orders");
+$totalRevenue = mysqli_fetch_assoc($revenueQuery)['total'];
+
+$productsCountQuery = mysqli_query($conn, "SELECT COUNT(*) as count FROM products");
+$totalProducts = mysqli_fetch_assoc($productsCountQuery)['count'];
+
+$pendingOrdersQuery = mysqli_query($conn, "SELECT COUNT(*) as count FROM orders WHERE order_status = 'Pending'");
+$pendingOrders = mysqli_fetch_assoc($pendingOrdersQuery)['count'];
+
+// Fetch Recent Orders
+$recentOrdersQuery = mysqli_query($conn, "
+    SELECT o.order_id, u.username, o.created_at, o.total_amount, o.order_status 
+    FROM orders o 
+    LEFT JOIN users u ON o.user_id = u.user_id 
+    ORDER BY o.created_at DESC 
+    LIMIT 5
+");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +42,7 @@ include_once '../user-side/includes/db.php';
         <div class="header">
             <h2>Dashboard Overview</h2>
             <div class="admin-profile">
-                <span>Admin User</span>
+                <span><?= htmlspecialchars($_SESSION['username'] ?? 'Admin User') ?></span>
                 <i class="fa-solid fa-circle-user fa-2x" style="color: #0b4d2c;"></i>
             </div>
         </div>
@@ -28,7 +50,7 @@ include_once '../user-side/includes/db.php';
         <div class="cards">
             <div class="card">
                 <div class="card-info">
-                    <h3>1,250</h3>
+                    <h3><?= number_format($totalOrders) ?></h3>
                     <span>Total Orders</span>
                 </div>
                 <div class="card-icon">
@@ -37,7 +59,7 @@ include_once '../user-side/includes/db.php';
             </div>
             <div class="card">
                 <div class="card-info">
-                    <h3>Birr 45K</h3>
+                    <h3>$<?= number_format($totalRevenue, 2) ?></h3>
                     <span>Total Revenue</span>
                 </div>
                 <div class="card-icon">
@@ -46,7 +68,7 @@ include_once '../user-side/includes/db.php';
             </div>
             <div class="card">
                 <div class="card-info">
-                    <h3><?= count(get_products()) ?></h3>
+                    <h3><?= number_format($totalProducts) ?></h3>
                     <span>Products</span>
                 </div>
                 <div class="card-icon">
@@ -55,7 +77,7 @@ include_once '../user-side/includes/db.php';
             </div>
             <div class="card">
                 <div class="card-info">
-                    <h3>56</h3>
+                    <h3><?= number_format($pendingOrders) ?></h3>
                     <span>Pending Orders</span>
                 </div>
                 <div class="card-icon">
@@ -81,36 +103,28 @@ include_once '../user-side/includes/db.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>#ORD-001</td>
-                        <td>Abebe Bekele</td>
-                        <td>Oct 24, 2026</td>
-                        <td>Birr 120.00</td>
-                        <td><span class="status pending">Pending</span></td>
-                        <td class="action-links">
-                            <a href="#">View</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#ORD-002</td>
-                        <td>Aster Aweke</td>
-                        <td>Oct 23, 2026</td>
-                        <td>Birr 45.00</td>
-                        <td><span class="status processing">Processing</span></td>
-                        <td class="action-links">
-                            <a href="#">View</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#ORD-003</td>
-                        <td>Ethiopian Dude</td>
-                        <td>Oct 22, 2026</td>
-                        <td>Birr 210.00</td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td class="action-links">
-                            <a href="#">View</a>
-                        </td>
-                    </tr>
+                    <?php if (mysqli_num_rows($recentOrdersQuery) === 0): ?>
+                        <tr>
+                            <td colspan="6" style="text-align: center; color: #888; padding: 20px;">No orders placed yet.</td>
+                        </tr>
+                    <?php else: ?>
+                        <?php while ($ord = mysqli_fetch_assoc($recentOrdersQuery)): ?>
+                            <tr>
+                                <td>#ORD-<?= str_pad($ord['order_id'], 4, '0', STR_PAD_LEFT) ?></td>
+                                <td><?= htmlspecialchars($ord['username'] ?? 'Guest Customer') ?></td>
+                                <td><?= date('M d, Y', strtotime($ord['created_at'])) ?></td>
+                                <td>$<?= number_format($ord['total_amount'], 2) ?></td>
+                                <td>
+                                    <span class="status <?= strtolower($ord['order_status']) ?>">
+                                        <?= htmlspecialchars($ord['order_status']) ?>
+                                    </span>
+                                </td>
+                                <td class="action-links">
+                                    <a href="orders.php?order_id=<?= $ord['order_id'] ?>">Manage</a>
+                                </td>
+                            </tr>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
