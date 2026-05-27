@@ -30,5 +30,9 @@ $products = array_slice(get_products(), 0, 4);
 
     </div>
 
+    <div class="products-cta">
+      <a href="products.php" class="btn">View More Products</a>
+    </div>
+
   </div>
 </section>
