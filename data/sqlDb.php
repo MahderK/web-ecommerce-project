@@ -202,15 +202,15 @@ if ($catCount == 0) {
         ['Monstera Deliciosa', 24.00, 1, 'Best Seller', 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=400&q=80'],
         ['Snake Plant', 18.00, 1, '', 'https://images.unsplash.com/photo-1512428813834-c702c7702b78?w=400&q=80'],
         ['Fiddle Leaf Fig', 22.00, 1, 'New', 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=400&q=80'],
-        ['Aloe Vera', 14.00, 3, '', 'https://images.unsplash.com/photo-1616677102255-f6f5d4e7749d?w=400&q=80'],
-        ['Bird of Paradise', 35.00, 4, 'Popular', 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80'],
+        ['Aloe Vera', 14.00, 3, '', 'https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?w=400&q=80'],
+        ['Bird of Paradise', 35.00, 4, 'Popular', 'https://images.unsplash.com/photo-1603436326446-74e2d65f3168?w=400&q=80'],
         ['Pothos', 12.00, 1, '', 'https://images.unsplash.com/photo-1632207691143-643e2a9a9361?w=400&q=80'],
         ['Cactus Mix', 10.00, 3, 'Sale', 'https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=400&q=80'],
         ['Peace Lily', 20.00, 1, '', 'https://images.unsplash.com/photo-1591958911259-bee2173bdccc?w=400&q=80'],
-        ['Bamboo Palm', 28.00, 2, '', 'https://images.unsplash.com/photo-1584467735871-8e85353a8413?w=400&q=80'],
-        ['Lavender', 16.00, 2, 'New', 'https://images.unsplash.com/photo-1444930694458-01babf71870c?w=400&q=80'],
-        ['Rubber Plant', 26.00, 4, '', 'https://images.unsplash.com/photo-1620803366004-119b57f54cd6?w=400&q=80'],
-        ['Echeveria Succulent', 9.00, 3, 'Sale', 'https://images.unsplash.com/photo-1555173274-ae64e5a4f51d?w=400&q=80']
+        ['Bamboo Palm', 28.00, 2, '', 'https://images.unsplash.com/photo-1532920161727-344adb090f7f?w=400&q=80'],
+        ['Lavender', 16.00, 2, 'New', 'https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?w=400&q=80'],
+        ['Rubber Plant', 26.00, 4, '', 'https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=400&q=80'],
+        ['Echeveria Succulent', 9.00, 3, 'Sale', 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=400&q=80']
     ];
     
     foreach ($productsSeed as $p) {

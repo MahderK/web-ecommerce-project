@@ -14,7 +14,7 @@
 
       <div>
         <h3>Plantea.</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Your premium destination for healthy, locally-sourced potted plants and expert garden advice.</p>
       </div>
 
       <div>

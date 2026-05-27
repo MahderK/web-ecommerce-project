@@ -10,7 +10,7 @@
         <h2>Come With Us How To Grow Your Plants Better</h2>
 
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Master the basics of potting, lighting, watering, and repotting. Learn how to keep your houseplants thriving all year round with simple tips from our botanical specialists.
         </p>
 
         <a href="#" class="btn">Read More</a>
