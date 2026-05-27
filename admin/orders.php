@@ -126,7 +126,7 @@ $ordersQuery = mysqli_query($conn, "
                                 <td>#ORD-<?= str_pad($ord['order_id'], 4, '0', STR_PAD_LEFT) ?></td>
                                 <td><?= htmlspecialchars($ord['username'] ?? 'Guest Customer') ?></td>
                                 <td><?= $ord['items_count'] ?> Item<?= $ord['items_count'] !== 1 ? 's' : '' ?></td>
-                                <td>$<?= number_format($ord['total_amount'], 2) ?></td>
+                                <td><?= number_format($ord['total_amount'], 2) ?> Birr</td>
                                 <td>
                                     <form method="POST" action="orders.php" style="display: inline-block;">
                                         <input type="hidden" name="update_status" value="1">

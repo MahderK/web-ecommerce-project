@@ -121,7 +121,7 @@ if ($sort === 'name')       usort($filtered, fn($a,$b) => strcmp($a['name'], $b[
           <span class="card-category"><?= $p['category'] ?></span>
           <h3><?= htmlspecialchars($p['name']) ?></h3>
           <div class="card-footer">
-            <span class="card-price">$<?= number_format($p['price'], 2) ?></span>
+            <span class="card-price"><?= number_format($p['price'], 2) ?> Birr</span>
             <form method="POST" action="cart.php">
               <input type="hidden" name="product_id"   value="<?= $p['id'] ?>">
               <input type="hidden" name="product_name"  value="<?= htmlspecialchars($p['name']) ?>">

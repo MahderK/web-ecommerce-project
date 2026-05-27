@@ -200,8 +200,8 @@ $cart_count = count($_SESSION['cart']);
                             </div>
                             <div class="item-details">
                                 <h3><?= htmlspecialchars($item['name']) ?></h3>
-                                <div class="item-price">$<?= number_format($item['price'], 2) ?> each</div>
-                                <div class="item-subtotal">Total: $<span class="item-subtotal-val" data-price="<?= $item['price'] ?>"><?= number_format($item['price'] * $item['quantity'], 2) ?></span></div>
+                                <div class="item-price"><?= number_format($item['price'], 2) ?> Birr each</div>
+                                <div class="item-subtotal">Total: <span class="item-subtotal-val" data-price="<?= $item['price'] ?>"><?= number_format($item['price'] * $item['quantity'], 2) ?></span> Birr</div>
                             </div>
                             <div class="quantity-control">
                                 <form method="POST" action="cart.php" class="qty-form">
@@ -226,15 +226,15 @@ $cart_count = count($_SESSION['cart']);
                     <h3>Order Summary</h3>
                     <div class="summary-line">
                         <span id="summary-items-count">Subtotal (<?= $cart_count ?> item<?= $cart_count > 1 ? 's' : '' ?>)</span>
-                        <span id="summary-subtotal">$<?= number_format($subtotal, 2) ?></span>
+                        <span id="summary-subtotal"><?= number_format($subtotal, 2) ?> Birr</span>
                     </div>
                     <div class="summary-line">
                         <span>Shipping</span>
-                        <span id="summary-shipping">$<?= number_format($shipping, 2) ?></span>
+                        <span id="summary-shipping"><?= number_format($shipping, 2) ?> Birr</span>
                     </div>
                     <div class="summary-total">
                         <span>Total</span>
-                        <span id="summary-total">$<?= number_format($total, 2) ?></span>
+                        <span id="summary-total"><?= number_format($total, 2) ?> Birr</span>
                     </div>
                     <a href="checkout.php" class="checkout-btn">Proceed to Checkout</a>
                 </div>
@@ -324,9 +324,9 @@ $cart_count = count($_SESSION['cart']);
 
         function updateSummaryDOM(data) {
             document.getElementById('summary-items-count').innerHTML = 'Subtotal (' + data.cart_count + ' item' + (data.cart_count !== 1 ? 's' : '') + ')';
-            document.getElementById('summary-subtotal').textContent = '$' + data.subtotal;
-            document.getElementById('summary-shipping').textContent = '$' + data.shipping;
-            document.getElementById('summary-total').textContent = '$' + data.total;
+            document.getElementById('summary-subtotal').textContent = data.subtotal + ' Birr';
+            document.getElementById('summary-shipping').textContent = data.shipping + ' Birr';
+            document.getElementById('summary-total').textContent = data.total + ' Birr';
             
             // Also update the navbar cart badge count dynamically if it exists
             var navBadge = document.querySelector('.nav-links .cart-badge, .icons .cart-badge');

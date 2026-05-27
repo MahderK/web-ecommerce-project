@@ -27,8 +27,8 @@
 
       <div>
         <h3>Contact</h3>
-        <p>support@plantea.com</p>
-        <p>+123 456 7890</p>
+        <p>Email [EMAIL_ADDRESS]</p>
+        <p>Phone +251 900 000 000</p>
       </div>
 
     </div>
