@@ -69,7 +69,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <div style="position: relative;">
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required style="padding-right: 45px;">
+                    <button type="button" id="toggle-password" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #888; font-size: 16px; padding: 0;">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                </div>
             </div>
             <button type="submit" class="auth-btn">Login</button>
         </form>
@@ -80,6 +85,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </section>
 
 <?php include './includes/footer.php'; ?>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var toggleBtn = document.getElementById('toggle-password');
+    var passwordInput = document.getElementById('password');
+    var icon = toggleBtn.querySelector('i');
+
+    toggleBtn.addEventListener('click', function() {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    });
+});
+</script>
 
 </body>
 </html>
