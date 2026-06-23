@@ -21,7 +21,6 @@
         <h3>Pages</h3>
         <p><a href="index.php">Home</a></p>
         <p><a href="products.php">Shop</a></p>
-        <p><a href="#">Contact</a></p>
       </div>
 
       <div>
