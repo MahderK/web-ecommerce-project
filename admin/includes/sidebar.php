@@ -19,7 +19,7 @@
             </a>
         </li>
         <li>
-            <a href="../index.php">
+            <a href="../user-side/index.php">
                 <i class="fa-solid fa-globe"></i> View Site
             </a>
         </li>
