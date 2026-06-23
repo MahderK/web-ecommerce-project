@@ -5,7 +5,7 @@
 
       <div>
         <h2>Grow Plant For A Better Life</h2>
-        <a href="#" class="btn">Learn More</a>
+        <a href="https://www.wikihow.com/Grow-Healthy-Plants" class="btn">Learn More</a>
       </div>
 
       <div class="cta-images">

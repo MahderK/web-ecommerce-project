@@ -13,7 +13,7 @@
           Master the basics of potting, lighting, watering, and repotting. Learn how to keep your houseplants thriving all year round with simple tips from our botanical specialists.
         </p>
 
-        <a href="#" class="btn">Read More</a>
+        <a href="https://www.wikihow.com/Grow-Healthy-Plants" class="btn">Read More</a>
 
       </div>
 
