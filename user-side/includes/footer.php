@@ -19,15 +19,14 @@
 
       <div>
         <h3>Pages</h3>
-        <p><a href="#">Home</a></p>
-        <p><a href="#">Shop</a></p>
-        <p><a href="#">About</a></p>
+        <p><a href="index.php">Home</a></p>
+        <p><a href="products.php">Shop</a></p>
         <p><a href="#">Contact</a></p>
       </div>
 
       <div>
         <h3>Contact</h3>
-        <p>Email [EMAIL_ADDRESS]</p>
+        <p>Email <b>contact@plantea.com</b></p>
         <p>Phone +251 900 000 000</p>
       </div>
 
